@@ -6,12 +6,15 @@ let planetImage = document.getElementsByClassName("img-planet");
 let crewImage = document.getElementsByClassName("img-crew");
 let crewSelector = document.getElementsByClassName("crew-selector");
 let crewContent = document.getElementsByClassName("crew-content");
+let techImage = document.getElementsByClassName("img-tech");
+let techSelector = document.getElementsByClassName("tech-selector");
+let techContent = document.getElementsByClassName("tech-content");
 console.log(MainNav);
 //to set underline
 function itemChicked(el) {
     for(let i = 0; i < MainNav.length; i++){
         MainNav[i].classList.remove("hovered");
-        if(i <= 2){
+        if(i <= 3){
             content[i].classList.add("dis-no");
         }
     }
@@ -50,8 +53,18 @@ function crewChicked(el) {
     crewContent[el].classList.remove("dis-no");
     crewImage[el].classList.remove("dis-no");
 }
+function techChicked(el) {
+    for(let i = 0; i < techImage.length; i++){
+        techSelector[i].classList.remove("hovered");
+        techContent[i].classList.add("dis-no");
+        techImage[i].classList.add("dis-no");
+    }
+    techSelector[el].classList.add("hovered");
+    techContent[el].classList.remove("dis-no");
+    techImage[el].classList.remove("dis-no");
+}
 
-window.onload = itemChicked(0);
+window.onload = itemChicked(3);
 MainNav[0].onclick = () => itemChicked(0);
 MainNav[1].onclick = () => itemChicked(1);
 MainNav[2].onclick = () => itemChicked(2);
@@ -68,3 +81,8 @@ crewSelector[0].onclick = () => crewChicked(0);
 crewSelector[1].onclick = () => crewChicked(1);
 crewSelector[2].onclick = () => crewChicked(2);
 crewSelector[3].onclick = () => crewChicked(3);
+
+window.onload = techChicked(0);
+techSelector[0].onclick = () => techChicked(0);
+techSelector[1].onclick = () => techChicked(1);
+techSelector[2].onclick = () => techChicked(2);

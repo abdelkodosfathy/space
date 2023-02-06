@@ -3,9 +3,15 @@
     color: white;
     padding: 0;
     margin: 0;
-    font-family: 'poppins';
+    user-select: none;
 }
-
+:root {
+    --heading: 'Bellefair';
+    --text:'Barlow Condensed';
+    --ligh-blue: #D0D6F9;
+    --black: #0B0D17;
+    --ofwhite:#ffffff;
+}
 
 body{
     background-image: url("../photos/home/background-home-desktop.jpg");
@@ -38,19 +44,19 @@ nav{
     justify-content: space-around;
     padding: 10px 60px;
 }
+p{
+    font-family: var(--text);
+}
 a{
+    font-family: var(--text);
     text-decoration: none;
     position: relative;
     font-size: 18px;
 }
-
-.hovered::after{
-    height: 3px;
-}
 a::after{
     content: "";
     position: absolute;
-    background-color:white;
+    background-color:var(--ofwhite);
     height: 0px;
     width: 100%;
     left: 0;
@@ -58,6 +64,9 @@ a::after{
     transition: 0.3s;
 }
 a:hover::after{
+    height: 3px;
+}
+.hovered::after{
     height: 3px;
 }
 .line{
@@ -80,16 +89,15 @@ a:hover::after{
     align-items: center;
     justify-content: center;
     width: 500px;
-    padding: 100px;
+    padding: 150px;
     font-size: 25px;
-    
 }
 .space{
-    font-family: 'Philosopher';
+    font-family: var(--heading);
     font-size: 140px;
 }
 .travel{
-    font-family: 'Oswald';
+    font-family: var(--text);
     font-size: 40px;
     font-weight: 100;
     letter-spacing: 5px;
@@ -102,37 +110,33 @@ a:hover::after{
     height: 300px;
     border-radius: 50%;
     margin: 300px;
-    background-color:white;
+    background-color:var(--ofwhite);
     color: black;
     font-size: 40px;
-    font-family:'philosopher';
+    font-family:var(--heading);
+    
 }
 .dis-no{
     display: none;
 }
 
-.planets {
-    width: 45%;
+.planets{
+    width: 80%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.planets a{
-    font-family: 'Oswald';
-    
-}
 .planets a::after{
     bottom: -15px;
 }
 .side-content{
-    width: 700px;
+    width: 450px;
     line-height: 30px;
     font-size: 20px;
     height: 400px;
-
 }
-@keyframes move {
+@keyframes move{
     0% {top: 0px;}
     50% {top: 50px;}
     100% {top: 0px;}
@@ -142,9 +146,9 @@ a:hover::after{
     height: 495px;
 }
 .planet-name{
-    font-family: 'oswald';
-    font-size: 140px;
-    letter-spacing: 6px;
+    font-family: var(--heading);
+    font-size: 100px;
+    font-weight: 100;
 }
 .img-planet img{
     position: relative;
@@ -154,13 +158,12 @@ a:hover::after{
     width: 160px;
     display: flex;
     justify-content: space-between;
-    padding: 100px;
+    padding: 150px;
     position: absolute;
-    bottom: 200px;
-
+    bottom: 180px;
 }
 .crew-selector:hover{
-    background-color: white;
+    background-color: var(--ligh-blue);
 }
 .crew-selector{
     cursor: pointer;
@@ -170,9 +173,44 @@ a:hover::after{
     background-color: rgba(255, 255, 255, 0.3);
 }
 .crew-selector.hovered{
-    background-color:white;
+    background-color:var(--ofwhite);
 }
-.crew-title{
+.crew-title,.tech-title{
     color: rgba(255, 255, 255, 0.4);
-    font-weight: 300px;
+    font-weight: 400;
+    font-family: var(--heading);
+}
+.tech-main .paragraph{
+    display: flex;
+}
+.tech-title{
+    font-size:16px;
+    letter-spacing: 2.7px ;
+    font-family: var(--text);
+    color: var(--ligh-blue);
+}
+.tech-name{
+    font-family: var(--heading);
+    font-weight: 100;
+    margin: 10px 0px;
+}
+.tech-selector{
+    font-family: var(--heading);
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: var(--ofwhite);
+    border: 2.5px solid hwb(0 100% 0% / 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px 0px -150px ;
+}
+.tech-selector:hover{
+    border-color:var(--ofwhite);
+}
+.tech-selector.hovered{
+    background-color: var(--ofwhite);
+    color: var(--black);
 }
