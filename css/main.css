@@ -12,7 +12,6 @@
     --black: #0B0D17;
     --ofwhite:#ffffff;
 }
-
 body{
     background-image: url("../photos/home/background-home-desktop.jpg");
     background-size:cover;
@@ -56,7 +55,7 @@ a{
 a::after{
     content: "";
     position: absolute;
-    background-color:var(--ofwhite);
+    background-color:gray;
     height: 0px;
     width: 100%;
     left: 0;
@@ -68,6 +67,7 @@ a:hover::after{
 }
 .hovered::after{
     height: 3px;
+    background-color:var(--ofwhite);
 }
 .line{
     z-index: 1;
@@ -150,9 +150,12 @@ a:hover::after{
     font-size: 100px;
     font-weight: 100;
 }
-.img-planet img{
+.img-planet .img{
     position: relative;
     animation: move 5s ease-in-out infinite alternate;
+}
+.image{
+    transition: 1s;
 }
 .crews{
     width: 160px;
@@ -179,6 +182,9 @@ a:hover::after{
     color: rgba(255, 255, 255, 0.4);
     font-weight: 400;
     font-family: var(--heading);
+}
+.tech-main{
+    padding: 150px;
 }
 .tech-main .paragraph{
     display: flex;

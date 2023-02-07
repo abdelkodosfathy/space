@@ -2,36 +2,23 @@ let MainNav = document.getElementsByClassName("nav-item");
 let content = document.getElementsByClassName("content");
 let PlanetNav = document.getElementsByClassName("nav-planet");
 let PlanetContent = document.getElementsByClassName("planet-content");
-let planetImage = document.getElementsByClassName("img-planet");
+let planetImage = document.getElementsByClassName("image");
 let crewImage = document.getElementsByClassName("img-crew");
 let crewSelector = document.getElementsByClassName("crew-selector");
 let crewContent = document.getElementsByClassName("crew-content");
 let techImage = document.getElementsByClassName("img-tech");
 let techSelector = document.getElementsByClassName("tech-selector");
 let techContent = document.getElementsByClassName("tech-content");
-console.log(MainNav);
 //to set underline
 function itemChicked(el) {
+    var x = ["home/background-home","destination/background-destination","crew/background-crew","technology/background-technology"];
     for(let i = 0; i < MainNav.length; i++){
         MainNav[i].classList.remove("hovered");
-        if(i <= 3){
-            content[i].classList.add("dis-no");
-        }
+        content[i].classList.add("dis-no");
     }
     MainNav[el].classList.add("hovered");
     content[el].classList.remove("dis-no");
-    switch(el){
-        case 0:
-            document.body.style.cssText = "background-image: url('../photos/home/background-home-desktop.jpg');";
-            break;
-        case 1:
-            document.body.style.cssText = "background-image: url('../photos/destination/background-destination-desktop.jpg');";
-            break;
-        case 2:
-            document.body.style.cssText = "background-image: url('../photos/crew/background-crew-desktop.jpg');";
-            break;
-
-    }
+    document.body.style.cssText = `background-image: url(\'../photos/${x[el]}-desktop.jpg\');`;
 }
 function planetChicked(el) {
     for(let i = 0; i < PlanetNav.length; i++){
@@ -56,33 +43,30 @@ function crewChicked(el) {
 function techChicked(el) {
     for(let i = 0; i < techImage.length; i++){
         techSelector[i].classList.remove("hovered");
-        techContent[i].classList.add("dis-no");
         techImage[i].classList.add("dis-no");
+        techContent[i].classList.add("dis-no");
     }
     techSelector[el].classList.add("hovered");
-    techContent[el].classList.remove("dis-no");
     techImage[el].classList.remove("dis-no");
+    techContent[el].classList.remove("dis-no");
+}
+for(let m = 0; m < 4; m++){
+    MainNav[m].onclick = () => itemChicked(m);
+}
+for(let p = 0; p < 4; p++){
+    PlanetNav[p].onclick = () => planetChicked(p);
+}
+for(let c = 0; c < 4; c++){
+    crewSelector[c].onclick = () => crewChicked(c);
+}
+for(let t = 0; t < 3; t++){
+    techSelector[t].onclick = () => techChicked(t);
 }
 
-window.onload = itemChicked(3);
-MainNav[0].onclick = () => itemChicked(0);
-MainNav[1].onclick = () => itemChicked(1);
-MainNav[2].onclick = () => itemChicked(2);
-MainNav[3].onclick = () => itemChicked(3);
+window.onload = () => {
+    itemChicked(0);
+    planetChicked(0);
+    crewChicked(0);
+    techChicked(0);
+}
 
-window.onload = planetChicked(0);
-PlanetNav[0].onclick = () => planetChicked(0);
-PlanetNav[1].onclick = () => planetChicked(1);
-PlanetNav[2].onclick = () => planetChicked(2);
-PlanetNav[3].onclick = () => planetChicked(3);
-
-window.onload = crewChicked(0);
-crewSelector[0].onclick = () => crewChicked(0);
-crewSelector[1].onclick = () => crewChicked(1);
-crewSelector[2].onclick = () => crewChicked(2);
-crewSelector[3].onclick = () => crewChicked(3);
-
-window.onload = techChicked(0);
-techSelector[0].onclick = () => techChicked(0);
-techSelector[1].onclick = () => techChicked(1);
-techSelector[2].onclick = () => techChicked(2);
